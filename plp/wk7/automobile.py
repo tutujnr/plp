@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import numpy
 
 # Task 1: Load and Explore the Dataset with Error Handling
 url = "https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DV0101EN-SkillsNetwork/Data%20Files/historical_automobile_sales.csv"
@@ -52,7 +53,7 @@ except KeyError as e:
 except Exception as e:
     print(f"Unexpected error during analysis: {e}")
 
-# Task 3: Data Visualization
+# Task 3: Data Visualizations
 try:
     # Line Chart
     plt.figure(figsize=(10, 6))
@@ -91,6 +92,7 @@ try:
     plt.tight_layout()
     plt.show()
 
+# Error Handling 
 except KeyError as e:
     print(f"Missing column for plotting: {e}")
 except Exception as e:
