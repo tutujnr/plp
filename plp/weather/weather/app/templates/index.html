@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather App</title>
+    <style>
+        body { font-family: Arial; background: #1e3c72; color: #fff; padding: 2rem; }
+        .weather-box { background: #2a5298; padding: 2rem; border-radius: 10px; max-width: 400px; margin: auto; text-align: center; }
+        .weather-box img { width: 100px; }
+        form { margin-bottom: 1rem; }
+    </style>
+</head>
+<body>
+    <div class="weather-box">
+        <h2>Check Weather</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.city }}
+            <button type="submit">Search</button>
+        </form>
+
+        <h3>Recent Searches</h3>
+        <ul>
+            {% for item in recent_searches %}
+                <li>
+                    {{ item.name }} - {{ item.temperature }}°C - {{ item.description }}
+                    <img src="http://openweathermap.org/img/wn/{{ item.icon }}@2x.png" width="30">
+                </li>
+            {% empty %}
+                <li>No recent searches.</li>
+            {% endfor %}
+        </ul>
+
+
+        {% if error %}
+            <p>{{ error }}</p>
+        {% endif %}
+
+        {% if weather %}
+            <h3>{{ weather.city }}</h3>
+            <p>{{ weather.temperature }} °C</p>
+            <p>{{ weather.description }}</p>
+            <img src="http://openweathermap.org/img/wn/{{ weather.icon }}@2x.png" alt="weather icon">
+        {% endif %}
+    </div>
+</body>
+</html>
