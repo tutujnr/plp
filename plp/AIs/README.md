@@ -63,5 +63,3 @@ Bias Risk: Accessibility data may not reflect informal settlements or non-regist
 Fairness: Clustering helps identify underserved areas for more equitable urban planning
 
 Sustainability Impact: Data-driven resource allocation improves long-term transit planning
-
-📁 Files Included
